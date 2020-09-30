@@ -1,0 +1,9 @@
+#/bin/bash
+if [ ! -o "$1" ]
+then
+    echo "Please provide a directory to add notes to"
+    exit 1
+fi
+n=$(ls -l ./$1 | grep -v ^l | wc -l)
+
+touch ./$1/$n.md && echo "TITLE | $(date  +%A\ %d\ %b)" >> ./$1/$n.md
